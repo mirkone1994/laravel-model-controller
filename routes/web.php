@@ -14,5 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    $title = "Movies";
+    return view('home', compact('title'));
+})->name('home');
+
+Route::get('/movies', function () {
+    $movies = [];
+    return view('movies.index', compact('movies'));
+})->name('movies.index');
